@@ -21,38 +21,38 @@
 type TNativeType = "string" | "number" | "boolean";
 type TColumns = 1 | 2 | 3;
 
-export type IFieldType = {
+interface IFieldType {
   Id: number;
   Name: string;
   NativeType: TNativeType;
-};
+}
 
-export type IField = {
+interface IField {
   Id: number;
   Required: boolean;
   Title: string;
   PropertyName: string;
   ColumnSpan: TColumns;
   FieldTypeId: number;
-};
+}
 
-export type ISection = {
+interface ISection {
   Id: number;
   Title: string;
   FieldIds?: Array<number>;
   SubSectionIds?: Array<number>;
-};
+}
 
-export type IForm = {
+interface IForm {
   Id: number;
   Title: string;
   Columns: TColumns;
   SectionIds: Array<number>;
-};
+}
 
 // DATA
 
-export const fieldTypes: Array<IFieldType> = [
+const fieldTypes: Array<IFieldType> = [
   { Id: 1, Name: "Texto simples", NativeType: "string" },
   { Id: 2, Name: "Número inteiro", NativeType: "number" },
   { Id: 3, Name: "Número com casas decimais", NativeType: "number" },
@@ -62,7 +62,7 @@ export const fieldTypes: Array<IFieldType> = [
   { Id: 7, Name: "Telefone", NativeType: "number" },
 ];
 
-export const fields: Array<IField> = [
+const fields: Array<IField> = [
   { Id: 1, Title: "Nome completo", PropertyName: "Name", ColumnSpan: 3, FieldTypeId: 1, Required: true },
   { Id: 2, Title: "Nome da rua", PropertyName: "Adress", ColumnSpan: 2, FieldTypeId: 1, Required: false },
   { Id: 3, Title: "Número", PropertyName: "AdressNumber", ColumnSpan: 1, FieldTypeId: 2, Required: false },
@@ -82,7 +82,7 @@ export const fields: Array<IField> = [
   { Id: 11, Title: "Telefone", PropertyName: "Phone", ColumnSpan: 2, FieldTypeId: 7, Required: false },
 ];
 
-export const sections: Array<ISection> = [
+const sections: Array<ISection> = [
   { Id: 1, Title: "Dados gerais", FieldIds: [1, 4, 11, 7, 8, 9, 5, 10, 2, 3] },
   { Id: 2, Title: "Dados básicos", FieldIds: [1, 4, 11] },
   { Id: 3, Title: "Sócio economicos", FieldIds: [7, 8, 9, 5] },
@@ -90,7 +90,7 @@ export const sections: Array<ISection> = [
   { Id: 5, Title: "Dados do conjugue", SubSectionIds: [2, 3, 4] },
 ];
 
-export const forms: Array<IForm> = [
+const forms: Array<IForm> = [
   { Id: 1, Columns: 1, SectionIds: [1], Title: "Dados do cliente" },
   { Id: 2, Columns: 3, SectionIds: [2, 3, 4], Title: "Dados do cliente por seção" },
   { Id: 3, Columns: 2, SectionIds: [1, 5], Title: "Dados do cliente e do conjugue" },
