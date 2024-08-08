@@ -3,7 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "docs",
+    "outDir": "/docs",
     "baseUrl": "/teste"
   },
   "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
